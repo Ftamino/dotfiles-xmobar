@@ -76,7 +76,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,               xK_Print ), spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=flameshot org.flameshot.Flameshot gui")
 
     --open the xmonad.hs config with emacs
-    , ((modm,            xK_F10 ), spawn "emacs /home/finn/.xmonad/xmonad.hs")
+    , ((modm,            xK_F10 ), spawn "emacs ./xmonad.hs")
 
     -- close focused window
     , ((modm,               xK_q    ), kill)
@@ -124,7 +124,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_t     ), withFocused $ windows . W.sink)
 
     -- Quit Dialog
-    , ((modm .|. shiftMask, xK_o     ), spawn "python3 /home/finn/.logout-manager.py")
+    , ((modm .|. shiftMask, xK_o     ), spawn "python3 ./logout-manager.py")
 
     -- Restart xmonad
     , ((modm              , xK_z     ), spawn "xmonad --recompile; xmonad --restart")
@@ -252,8 +252,8 @@ myStartupHook = do
 -- Main Function
 
 main = do
-  xmproc0 <- spawnPipe "killall xmobar; sleep 3; xmobar -x 0 /home/finn/.xmonad/xmobar/xmobar0.conf"
-  xmproc <- spawnPipe "killall xmobar; sleep 3; xmobar -x 1 /home/finn/.xmonad/xmobar/xmobar.conf"
+  xmproc0 <- spawnPipe "killall xmobar; sleep 3; xmobar -x 0 ./xmobar/xmobar0.conf"
+  xmproc <- spawnPipe "killall xmobar; sleep 3; xmobar -x 1 ./xmobar/xmobar.conf"
   xmonad $ ewmh . docks $ def {logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc x
                                         >> hPutStrLn xmproc0 x
