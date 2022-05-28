@@ -4,6 +4,7 @@
 My current setup with xmonad. 
 
 ## Installing 
+Disclaimer: The script is not perfect and my not work for everyone or destroy sth. I only tested it on PopOS 22.04 twice. If sth does not work open a issue
 
 Pop! OS, Ubuntu, Linux Mint, Debian, etc:
  1. Install dependences
