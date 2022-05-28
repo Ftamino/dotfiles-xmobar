@@ -29,9 +29,9 @@ chmod +x ./install-ubuntu.sh
  Done
  
 Others:
- 1. Use your package manager to install dependencys
+ 1. Use your package manager to install dependencys (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
  ```
- xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty git
+ xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty git flameshot
  ```
  2. Download the repo
  ```
