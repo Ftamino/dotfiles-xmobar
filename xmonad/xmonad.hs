@@ -208,7 +208,7 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
 
         --Start Trayer on Monitor 1
-        spawn "killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request --transparent true --alpha 256 --height 19"
+        --spawn "killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request --transparent true --alpha 256 --height 19"
 
         -- Start Notfiaction Service
         spawn "killall dunst; dunst"
