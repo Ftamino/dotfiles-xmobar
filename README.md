@@ -2,6 +2,7 @@
 
 ## Info
 
+### Test
 This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds will come soon. Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
 
 ## Installing 
