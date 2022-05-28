@@ -208,7 +208,7 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
 
         --Start Trayer on Monitor 1
-        --spawn "killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request --transparent true --alpha 256 --height 19"
+        spawn "killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request --transparent true --alpha 256 --height 19"
 
         -- Start Notfiaction Service
         spawn "killall dunst; dunst"
@@ -229,10 +229,10 @@ myStartupHook = do
         --spawn "kdeconnect-indicator"
 
         --Spawn Streamdeck UI
-        spawn "killall streamdeck; streamdeck -n"
+        --spawn "killall streamdeck; streamdeck -n"
 
         --Setup screens correctly
-        spawn "/home/finn/.screenlayout/main.sh"
+        spawn "./screenlayout/main.sh"
 
         --Start open RGB with a color
         spawn "killall openrgb; openrgb -c 16FD31 --startminimized"
