@@ -27,3 +27,14 @@ chmod +x ./install-ubuntu.sh
 ./install-ubuntu.sh
 ```
  Done
+ 
+Others:
+ 1. Use your package manager to install dependencys
+ ```
+ xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty git
+ ```
+ 2. Download the repo
+ ```
+ git clone https://github.com/Ftamino/dotfiles.git dotfiles
+ ```
+ 3. Find out where the files need to go (look at the ubuntnu install script)
