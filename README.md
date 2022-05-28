@@ -5,8 +5,8 @@ My current setup with xmonad.
 
 ## Installing 
 
-Ubuntu:
- 1. Install dependencys
+Pop! OS, Ubuntu, Linux Mint, Debian, etc:
+ 1. Install dependences
 ```
 sudo apt install git
 ```
@@ -29,7 +29,7 @@ chmod +x ./install-ubuntu.sh
  Done
  
 Others:
- 1. Use your package manager to install dependencys (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
+ 1. Use your package manager to install dependences (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
  ```
  xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty git flameshot
  ```
