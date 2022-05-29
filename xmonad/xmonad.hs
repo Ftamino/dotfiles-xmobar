@@ -1,19 +1,26 @@
-----------------------------------------------------------------------
---Imports
-
+     --Base
 import XMonad
-import Data.Monoid
 import System.Exit
-import XMonad.Util.SpawnOnce
-import XMonad.Util.Run
-import XMonad.Util.Loggers
-import XMonad.Util.Cursor
+import qualified XMonad.StackSet as W
+
+     --Actions
+import XMonad.Actions.MouseResize
+
+    -- Data
+import Data.Maybe (fromJust)
+import Data.Char (isSpace)
+import Data.Monoid
+import qualified Data.Map        as M
+
+    -- Hooks
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
+
+    -- Layouts
 import XMonad.Layout.Grid
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.NoBorders
@@ -22,17 +29,17 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.MultiColumns
 import XMonad.Layout.SimpleFloat
-import XMonad.Prompt.Layout
-import XMonad.Prompt
-import XMonad.Prompt.Input
-import Data.Maybe (fromJust)
-import Data.Char (isSpace)
+
+   -- Utilities
+import XMonad.Util.SpawnOnce
+import XMonad.Util.Run
+import XMonad.Util.Loggers
+import XMonad.Util.Cursor
+
+--Here you can set a color scheme
+import Colors.Standart
 
 
-import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
-
---------------------------------------------------------------------
 --Defaults
 
 myTerminal      = "kitty"
@@ -55,8 +62,8 @@ clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
     where i = fromJust $ M.lookup ws myWorkspaceIndices
 
 
-myNormalBorderColor  = "#ABB8C3"
-myFocusedBorderColor = "#166ae0"
+myNormalBorderColor  = colorBack
+myFocusedBorderColor = colorFore
 
 ---------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -68,7 +75,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch rofi
     , ((modm, xK_y), spawn "rofi -modi run,drun -show drun -show-icons -sidebar-mode")
-
+ 
     --launch google-chrome
     , ((modm,               xK_c     ), spawn "google-chrome")
 
@@ -76,7 +83,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,               xK_Print ), spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=flameshot org.flameshot.Flameshot gui")
 
     --open the xmonad.hs config with emacs
-    , ((modm,            xK_F10 ), spawn "emacs ./xmonad.hs")
+    , ((modm,            xK_F10 ), spawn "emacs /home/finn/.xmonad/xmonad.hs")
+    
+    --Media keys
+    , ((0, 0x1008ff13), spawn "amixer set Master 5%+ unmute")
+    , ((0, 0x1008ff11), spawn "amixer set Master 5%- unmute")
+    , ((0, 0x1008ff12), spawn "amixer set Master 100%- unmute")
 
     -- close focused window
     , ((modm,               xK_q    ), kill)
@@ -124,7 +136,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_t     ), withFocused $ windows . W.sink)
 
     -- Quit Dialog
-    , ((modm .|. shiftMask, xK_o     ), spawn "python3 ./logout-manager.py")
+    , ((modm .|. shiftMask, xK_o     ), spawn "python3 /home/finn/.logout-manager.py")
 
     -- Restart xmonad
     , ((modm              , xK_z     ), spawn "xmonad --recompile; xmonad --restart")
@@ -168,7 +180,10 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Layouts:
 
-myLayout = toggleLayouts (noBorders Full) (avoidStruts (Tall 1 (3/100) (1/2) ||| Grid ||| multiCol [1] 1 0.01 (-0.5) ||| Mirror (Tall 1 (3/100) (3/5))  ))
+myLayout = toggleLayouts (noBorders Full) (avoidStruts (Tall 1 (3/100) (1/2) ||| Grid ||| multiCol [1] 1 0.01 (-0.5) ||| Mirror (Tall 1 (3/100) (3/5))  ))                           
+                            
+                            
+   
 
 
 -------------------------------------------------------------------------
@@ -223,16 +238,16 @@ myStartupHook = do
         setDefaultCursor xC_left_ptr
 
         --Spawn Volumeicon
-        spawn "killall volumeicon; volumeicon"
+        --spawn "killall volumeicon; volumeicon"
 
         --Laucnch Kde Connect Indicator
         --spawn "kdeconnect-indicator"
 
         --Spawn Streamdeck UI
-        --spawn "killall streamdeck; streamdeck -n"
+        spawn "killall streamdeck; streamdeck -n"
 
         --Setup screens correctly
-        spawn "./screenlayout/main.sh"
+        spawn "/home/finn/.screenlayout/main.sh"
 
         --Start open RGB with a color
         spawn "killall openrgb; openrgb -c 16FD31 --startminimized"
@@ -241,7 +256,7 @@ myStartupHook = do
         spawn "lxpolkit &"
 
         --Spwan picom
-        spawn "sleep 2; picom &"
+        spawn "killall picom; sleep 2; picom &"
 
         --Spawn CopyQ
         spawn "copyq &"
@@ -252,20 +267,20 @@ myStartupHook = do
 -- Main Function
 
 main = do
-  xmproc0 <- spawnPipe "killall xmobar; sleep 3; xmobar -x 0 ./xmobar/xmobar0.conf"
-  xmproc <- spawnPipe "killall xmobar; sleep 3; xmobar -x 1 ./xmobar/xmobar.conf"
+  xmproc0 <- spawnPipe "killall xmobar; sleep 3; xmobar -x 0 /home/finn/.xmonad/xmobar/xmobar0.conf"
+  xmproc <- spawnPipe "killall xmobar; sleep 3; xmobar -x 1 /home/finn/.xmonad/xmobar/xmobar.conf"
   xmonad $ ewmh . docks $ def {logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc x
                                         >> hPutStrLn xmproc0 x
-                        , ppVisible = xmobarColor "#00C504" "" . clickable
-                        , ppCurrent = xmobarColor "#E41266" "" . wrap
-                           ("<box type=Top width=1 mt=2 color=#15D452>") "</box>"
-                        , ppHidden = xmobarColor "#1283DE" "" . wrap
-                           ("<box type=Bottom width=1 mt=1 color=#E47E12>") "</box>" . clickable
-                        , ppHiddenNoWindows = xmobarColor "#1283DE" "" . clickable
-                        , ppTitle = xmobarColor "#1ED5D5" "" . shorten 60
-                        , ppLayout = xmobarColor "#1ED5D5" ""
-                        , ppSep = "<fc=#455A64> | </fc>"
+                        , ppVisible = xmobarColor color01 "" . clickable
+                        , ppCurrent = xmobarColor color02 "" . wrap
+                           ("<box type=Top width=1 mt=2 color=" ++ color03 ++ ">") "</box>"
+                        , ppHidden = xmobarColor color04 "" . wrap
+                           ("<box type=Bottom width=1 mt=1 color=" ++ color05 ++ ">") "</box>" . clickable
+                        , ppHiddenNoWindows = xmobarColor color06 "" . clickable
+                        , ppTitle = xmobarColor color07 "" . shorten 60
+                        , ppLayout = xmobarColor color08 ""
+                        , ppSep = "<fc=" ++ color09 ++ "> | </fc>"
                         , ppOrder = \(ws:_:l:_) -> [ws,l]
                         }
         ,terminal           = myTerminal
