@@ -16,13 +16,13 @@ color06 = "#1283DE" --Color for invisible workspace with no windows in xmobar
 color07 = "#1ED5D5" --Color for window title in xmobar
 color08 = "#1ED5D5" --Color for window layout in xmobar
 color09 = "#455A64" --Color for Seperator in xmobar
-color10 = "#343d46"
-color11 = "#99C794"
-color12 = "#FAC863"
-color13 = "#6699cc"
-color14 = "#c594c5"
-color15 = "#5fb3b3"
-color16 = "#d8dee9"
+color10 = "#000000" 
+color11 = "#000000"
+color12 = "#000000"
+color13 = "#000000"
+color14 = "#000000"
+color15 = "#000000"
+color16 = "#000000"
 
 colorTrayer :: String
 colorTrayer = "--tint 0x2E3440"
