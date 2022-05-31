@@ -1,8 +1,16 @@
-![desktop](https://user-images.githubusercontent.com/83065176/170823009-9a9f9c55-4316-4305-b3bb-ad1d6dbb7a3b.png)
-
 ## Info
 
 This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds will come soon. Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
+
+## Themes
+
+  ## Standart (trasnsperent)
+  ![standart](https://user-images.githubusercontent.com/83065176/171192508-9170fe4c-e359-44c0-b7f9-9c6a7c79f397.png)
+  ## Nord (trasnsperent)
+  ![nord](https://user-images.githubusercontent.com/83065176/171192575-fc789119-e4f1-4290-b8a1-6675d7f4b643.png)
+  ## Solarized (trasnsperent)
+![Solarized](https://user-images.githubusercontent.com/83065176/171192721-8704b56f-3042-47c7-a7f6-bfc3963c74b8.png)
+
 
 ## Themeing
 
