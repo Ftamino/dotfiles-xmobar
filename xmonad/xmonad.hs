@@ -54,6 +54,7 @@ myBorderWidth   = 2
 
 myModMask       = mod4Mask
 
+myFont = "xft:GE Inspira:wight=bold:pixelsize=13:antialias=true:hinting=true"
 
 myWorkspaces = [" www "," sys "," chat "," rec "," game "," vid "," mus "," gimp "," dat "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..]
@@ -71,8 +72,9 @@ myFocusedBorderColor = colorFore
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
    -- launch a terminal
     [ 
-    ((modm,               xK_t), spawn "kitty")
-
+    ((modm,               xK_t), spawn "kitty") 
+    
+   
     -- launch rofi
     , ((modm, xK_y), spawn "rofi -modi run,drun -show drun -show-icons -sidebar-mode")
  
@@ -181,11 +183,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Layouts:
 
 myLayout = toggleLayouts (noBorders Full) (avoidStruts (Tall 1 (3/100) (1/2) ||| Grid ||| multiCol [1] 1 0.01 (-0.5) ||| Mirror (Tall 1 (3/100) (3/5))  ))                           
-                            
-                            
-   
-
-
+                          
 -------------------------------------------------------------------------
 -- Window rules:
 
@@ -202,6 +200,8 @@ myManageHook = composeAll
     , title =? "Skripte"                                  --> doCenterFloat
     , className =? "flameshot"                            --> doFloat
     , className =? "discord"                              --> doShift ( myWorkspaces !! 2 )
+    , isFullscreen --> doFullFloat
+    , isDialog --> doFloat
     ]
 
 ------------------------------------------------------------------------
@@ -278,10 +278,10 @@ main = do
                         , ppHidden = xmobarColor color04 "" . wrap
                            ("<box type=Bottom width=1 mt=1 color=" ++ color05 ++ ">") "</box>" . clickable
                         , ppHiddenNoWindows = xmobarColor color06 "" . clickable
-                        , ppTitle = xmobarColor color07 "" . shorten 60
                         , ppLayout = xmobarColor color08 ""
+                        , ppTitle = xmobarColor color07 "" . shorten 60
                         , ppSep = "<fc=" ++ color09 ++ "> | </fc>"
-                        , ppOrder = \(ws:_:l:_) -> [ws,l]
+                        --, ppOrder = \(ws:_:l:_) -> [ws,l]
                         }
         ,terminal           = myTerminal
         ,focusFollowsMouse  = myFocusFollowsMouse
@@ -294,7 +294,7 @@ main = do
         ,keys               = myKeys
         ,mouseBindings      = myMouseBindings
         ,layoutHook         = myLayout
-        ,manageHook         = myManageHook
-        ,handleEventHook    = myEventHook
+        ,manageHook         = myManageHook 
+        ,handleEventHook    = myEventHook <+> fullscreenEventHook
         ,startupHook        = myStartupHook
     }
