@@ -11,14 +11,14 @@ sudo apt install xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeic
 flatpak install flameshot
 
 echo Making xmonad dir
-mkdir /home/*/.xmonad
+mkdir ~/.xmonad
 
 echo Copying Configs
 
-cp -r ./config/dunst /home/*/.config/
-cp -r ./config/neofetch /home/*/.config/
-cp ./config/picom/picom.conf /home/*/.config/
-cp -r ./config/volumeicon /home/*/.config/
-cp -r ./xmonad/* /home/*/.xmonad/
+cp -r ./config/dunst ~/.config/
+cp -r ./config/neofetch ~/.config/
+cp ./config/picom/picom.conf ~/.config/
+cp -r ./config/volumeicon ~/.config/
+cp -r ./xmonad/* ~/.xmonad/
 
 echo Installed
