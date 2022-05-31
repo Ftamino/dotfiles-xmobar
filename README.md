@@ -14,7 +14,7 @@ This is my current setup which is using xmonad as a wm. You are able to click th
 
 ## Themeing
 
-I tried making it as themeable as possible, but its not there yet. The only things you can easily theme is the xmobar PP (the thing that displays workspace names etc in the top bar) and the colors of xmonad itself (window borders). To do this you need to go into xmonad/lib/Colors (or .xmonad/lib/Colors if you have it on your system) and copy the Standart.hs and rename it to eg Yellow.hs. In there change the colors to your liking (some colors dont have a function yet) and edit the xmonad.hs in the bottom of the imports section: "import Colors.Standart". There change Standart to the name you gave to the .hs file. (without the .hs)   
+I tried making it as themeable as possible, but its not there yet. The only things you can easily theme is the xmobar PP (the thing that displays workspace names etc in the top bar) and the colors of xmonad itself (window borders). To do this you need to go into xmonad/lib/Colors (or .xmonad/lib/Colors if you have it on your system) and copy the Standart.hs and rename it to eg Yellow.hs. In there change the colors to your liking (some colors dont have a function yet) and edit the xmonad.hs in the bottom of the imports section: "import Colors.Standart". There change Standart to the name you gave to it in the file (at the top). A theming Software is planned but not there yet. 
 
 # Installing 
 Disclaimer: The script is not perfect and my not work for everyone or destroy sth. I only tested it on PopOS 22.04 twice. If sth does not work open a issue
