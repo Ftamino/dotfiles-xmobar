@@ -37,7 +37,7 @@ import XMonad.Util.Loggers
 import XMonad.Util.Cursor
 
 --Here you can set a color scheme
-import Colors.Standart
+import Colors.Nord
 
 
 --Defaults
@@ -267,8 +267,8 @@ myStartupHook = do
 -- Main Function
 
 main = do
-  xmproc0 <- spawnPipe "killall xmobar; sleep 3; xmobar -x 0 /home/finn/.xmonad/xmobar/xmobar0.conf"
-  xmproc <- spawnPipe "killall xmobar; sleep 3; xmobar -x 1 /home/finn/.xmonad/xmobar/xmobar.conf"
+  xmproc0 <- spawnPipe ("killall xmobar; sleep 3; xmobar -x 0 ~/.xmonad/xmobar/" ++ colorName0 ++ "")
+  xmproc <- spawnPipe ("killall xmobar; sleep 3; xmobar -x 1 ~/.xmonad/xmobar/" ++ colorName ++ "")
   xmonad $ ewmh . docks $ def {logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc x
                                         >> hPutStrLn xmproc0 x
