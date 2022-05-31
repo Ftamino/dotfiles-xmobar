@@ -281,6 +281,7 @@ main = do
                         , ppLayout = xmobarColor color08 ""
                         , ppTitle = xmobarColor color07 "" . shorten 60
                         , ppSep = "<fc=" ++ color09 ++ "> | </fc>"
+                        --Uncomment below to remove the layout indicator in the panel
                         --, ppOrder = \(ws:_:l:_) -> [ws,l]
                         }
         ,terminal           = myTerminal
