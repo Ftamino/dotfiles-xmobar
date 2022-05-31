@@ -2,7 +2,7 @@ module Colors.Standart where
 
 import XMonad
 
-colorScheme = "nord"
+colorScheme = "standart"
 
 colorBack = "#ABB8C3" --Color for border of a unfocused window
 colorFore = "#166AE0" --Color for border of a focused window

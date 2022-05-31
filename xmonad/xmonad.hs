@@ -37,7 +37,11 @@ import XMonad.Util.Loggers
 import XMonad.Util.Cursor
 
 --Here you can set a color scheme
-import Colors.Nord
+--Avaiable:
+--Standart: Greenish thing
+--Nord: Nord you know
+--Solarized: a bit old feeling (;
+import Colors.Standart
 
 
 --Defaults
