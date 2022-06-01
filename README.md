@@ -2,6 +2,21 @@
 
 This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds will come soon. Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
 
+## What's included?
+
+Xmonad as a window manager 
+Xmobar as a panel for the top 
+Trayer for the system tray
+Dunst for notifications
+Flameshot as a screenshot tool
+Kitty as the terminal
+Qclip as a clipboard manager
+Picom for the rounded corners and transperency
+Lxpolkit for apps that need authentication
+Rofi to get the run promt (Super+Y)
+Volumeicon for the volume indicator (To get it working uncomment some lines in startup hook)
+Emacs as a Text Editor (I would reccomend intalling doom emacs)
+
 # Themes
 
   ## Standart (trasnsperent)
