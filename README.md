@@ -5,9 +5,13 @@ This is my current setup which is using xmonad as a wm. You are able to click th
 ## What's included?
 
 Xmonad as a window manager 
+
 Xmobar as a panel for the top 
+
 Trayer for the system tray
+
 Dunst for notifications
+
 Flameshot as a screenshot tool
 Kitty as the terminal
 Qclip as a clipboard manager
