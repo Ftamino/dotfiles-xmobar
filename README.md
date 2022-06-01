@@ -13,12 +13,19 @@ Trayer for the system tray
 Dunst for notifications
 
 Flameshot as a screenshot tool
+
 Kitty as the terminal
+
 Qclip as a clipboard manager
+
 Picom for the rounded corners and transperency
+
 Lxpolkit for apps that need authentication
+
 Rofi to get the run promt (Super+Y)
+
 Volumeicon for the volume indicator (To get it working uncomment some lines in startup hook)
+
 Emacs as a Text Editor (I would reccomend intalling doom emacs)
 
 # Themes
