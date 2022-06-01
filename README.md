@@ -44,6 +44,11 @@ chmod +x ./install-ubuntu.sh
 
  Done
  
+Lazy Ubuntu: 
+```
+sudo apt install git; git clone https://github.com/Ftamino/dotfiles.git dotfiles; cd dotfiles; chmod +x ./install-ubuntu.sh; ./install-ubuntu.sh
+```
+
 Others:
  1. Use your package manager to install dependences (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
  ```
