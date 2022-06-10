@@ -4,12 +4,24 @@ This is my current setup which is using xmonad as a wm. You are able to click th
 
 ## Table of contents
 [1. Info](https://github.com/Ftamino/dotfiles#info)
+
   [1.1 Included Programms](https://github.com/Ftamino/dotfiles#whats-included)
+  
 [2. Themes](https://github.com/Ftamino/dotfiles#themes)
+
   [2.1 Premade Themes](https://github.com/Ftamino/dotfiles#standart-trasnsperent)
-  [2.2 Change Themes](https://github.com/Ftamino/dotfiles#themeing)
-[]()
-[]()
+  
+  [2.2 Change Themes](https://github.com/Ftamino/dotfiles#change-themes)
+  
+  [2.3 Make own Themes](https://github.com/Ftamino/dotfiles#make-themes)
+
+[3. Installation](https://github.com/Ftamino/dotfiles#installing)
+
+  [3.1 Debian based](https://github.com/Ftamino/dotfiles#pop-os-ubuntu-linux-mint-debian-etc)
+
+  [3.2 Arch based](https://github.com/Ftamino/dotfiles#arch-and-arch-based)
+
+  [3.3 Others](https://github.com/Ftamino/dotfiles#others)
 
 ## What's included?
 
@@ -117,7 +129,7 @@ chmod +x ./install-arch.sh
 
  Done
 
-Others:
+## Others:
  1. Use your package manager to install dependences (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
  ```
  xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty git flameshot arandr
