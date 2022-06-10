@@ -50,6 +50,8 @@ import Colors.Standart
 
 myTerminal      = "kitty"
 
+myBrowser       = "google-chrome"
+
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
@@ -85,7 +87,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_y), spawn "rofi -modi run,drun -show drun -show-icons -sidebar-mode")
  
     --launch google-chrome
-    , ((modm,               xK_c     ), spawn "google-chrome")
+    , ((modm,               xK_c     ), spawn myBrowser)
 
     --launch flameshot gui
     , ((0,               xK_Print ), spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=flameshot org.flameshot.Flameshot gui")
@@ -207,7 +209,7 @@ myManageHook = composeAll
     , title =? "Skripte"                                  --> doCenterFloat
     , className =? "flameshot"                            --> doFloat
     , className =? "discord"                              --> doShift ( myWorkspaces !! 2 )
-   -- , isFullscreen --> doFullFloat
+    -- , isFullscreen --> doFullFloat
     , isDialog --> doFloat
     ]
 
@@ -302,6 +304,6 @@ main = do
         ,mouseBindings      = myMouseBindings
         ,layoutHook         = myLayout
         ,manageHook         = myManageHook 
-        ,handleEventHook    = myEventHook <+> fullscreenEventHook
+        ,handleEventHook    = myEventHook -- <+> fullscreenEventHook
         ,startupHook        = myStartupHook
     }
