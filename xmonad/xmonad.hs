@@ -91,12 +91,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,               xK_Print ), spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=flameshot org.flameshot.Flameshot gui")
 
     --open the xmonad.hs config with emacs
-    , ((modm,            xK_F10 ), spawn "emacs /home/finn/.xmonad/xmonad.hs")
+    , ((modm,            xK_F10 ), spawn "emacs ~/.xmonad/xmonad.hs")
     
     --Media keys
     , ((0, 0x1008ff13), spawn "amixer set Master 5%+ unmute")
     , ((0, 0x1008ff11), spawn "amixer set Master 5%- unmute")
     , ((0, 0x1008ff12), spawn "amixer set Master 100%- unmute")
+
+    , ((modm,            xK_F12 ), spawn "python3 ~/.configuration.py")
 
     -- close focused window
     , ((modm,               xK_q    ), kill)
@@ -205,7 +207,7 @@ myManageHook = composeAll
     , title =? "Skripte"                                  --> doCenterFloat
     , className =? "flameshot"                            --> doFloat
     , className =? "discord"                              --> doShift ( myWorkspaces !! 2 )
-    , isFullscreen --> doFullFloat
+   -- , isFullscreen --> doFullFloat
     , isDialog --> doFloat
     ]
 
