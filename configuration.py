@@ -42,15 +42,20 @@ class MyWindow1(Gtk.Window):
         button3.set_hexpand(True)
         button3.connect("clicked", self.on_button3_clicked)
         
-        button4 = Gtk.Button(label="Exit")
+        button4 = Gtk.Button(label="Hotkeys")
         button4.set_hexpand(True)
-        button4.connect("clicked", Gtk.main_quit)
-
+        button4.connect("clicked", self.on_button4_clicked)
+        
+        button5 = Gtk.Button(label="Exit")
+        button5.set_hexpand(True)
+        button5.connect("clicked", Gtk.main_quit)
+        
         
         grid1.attach(button1, 0, 7, 1, 1)
         grid1.attach(button2, 1, 7, 1, 1)
         grid1.attach(button3, 2, 7, 1, 1)
         grid1.attach(button4, 3, 7, 1, 1)
+        grid1.attach(button5, 0, 8, 1, 2)
 
         
         self.add(frame1)
@@ -68,6 +73,11 @@ class MyWindow1(Gtk.Window):
     def on_button3_clicked(self, widget):
         print("User chose: Display Settings")
         subprocess.run(["arandr"])
+        
+    def on_button4_clicked(self, widget):
+        print("User chose: Hotkey List")
+        win1.hide()
+        win3.show_all()
 
 class MyWindow2(Gtk.Window):
     def __init__(self):
@@ -156,9 +166,77 @@ class MyWindow2(Gtk.Window):
         print("Back To Main Menu")
         win2.hide()
         win1.show_all()
+        
+class MyWindow3(Gtk.Window):
+    def __init__(self):
+        super().__init__(title="Hotkey List")
+
+        self.set_border_width(10)
+        self.set_default_size(700, 300)
+        self.set_position(Gtk.WindowPosition.CENTER)
+        self.set_resizable(False)
+
+        frame3 = Gtk.Frame(label="Hotkeys")
+
+        grid3 = Gtk.Grid(row_spacing    = 10,
+                         column_spacing = 10,
+                         column_homogeneous = True)
+
+        label0 = Gtk.Label(label="Open Terminal : Mod+T")
+        label0.set_hexpand(True)
+        
+        label1 = Gtk.Label(label="Open Launcher : Mod+Y")
+        label1.set_hexpand(True)
+
+        label2 = Gtk.Label(label="Open Browser  :  Mod+C")
+        label2.set_hexpand(True)
+        
+        label3 = Gtk.Label(label="Make a Screenshot : Print")
+        label3.set_hexpand(True)
+        
+        label4 = Gtk.Label(label="Control Volume : Media Keys")
+        label4.set_hexpand(True)
+        
+        label5 = Gtk.Label(label="Close active Window : Mod + Q")
+        label5.set_hexpand(True)
+        
+        label6 = Gtk.Label(label="Toggle Fullscreen : Mod + F11")
+        label6.set_hexpand(True)
+        
+        label7 = Gtk.Label(label="Restart xmonad : Mod + Z")
+        label7.set_hexpand(True)
+        
+        colorBtn1 = Gtk.Button(label="Back To Main Menu")
+        colorBtn1.set_hexpand(True)
+        colorBtn1.connect("clicked", self.on_colorBtn1_clicked)
+
+        colorBtn2 = Gtk.Button(label="Exit")
+        colorBtn2.set_hexpand(True)
+        colorBtn2.connect("clicked", Gtk.main_quit)
+
+        
+        grid3.attach(label0,  0, 6, 1, 1)
+        grid3.attach(label1,  1, 6, 1, 1)
+        grid3.attach(label2,  2, 6, 1, 1)
+        grid3.attach(label3,  3, 6, 1, 1)
+        grid3.attach(label4,  0, 7, 1, 1)
+        grid3.attach(label5,  1, 7, 1, 1)
+        grid3.attach(label6,  2, 7, 1, 1)
+        grid3.attach(label7,  3, 7, 1, 1)
+        grid3.attach(colorBtn1, 0, 10, 2, 1)
+        grid3.attach(colorBtn2, 2, 10, 2, 1)
+
+        self.add(frame3)
+        frame3.add(grid3)
+
+    def on_colorBtn1_clicked(self, widget):
+        print("Back To Main Menu")
+        win3.hide()
+        win1.show_all()
 
 win1 = MyWindow1()
 win2 = MyWindow2()
+win3 = MyWindow3()
 
 win1.connect("destroy", Gtk.main_quit)
 win2.connect("destroy", Gtk.main_quit)
