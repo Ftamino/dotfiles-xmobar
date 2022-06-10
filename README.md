@@ -39,8 +39,9 @@ Emacs as a Text Editor (I would reccomend intalling doom emacs)
   ## Nord (solid)
   ![nord-solid](https://user-images.githubusercontent.com/83065176/173049916-c36141db-75a1-4a72-a15a-11278ab03eb5.png)
   ## Solarized (trasnsperent)
-![Solarized](https://user-images.githubusercontent.com/83065176/171192721-8704b56f-3042-47c7-a7f6-bfc3963c74b8.png)
-
+![solarized](https://user-images.githubusercontent.com/83065176/173050234-bdd0d3ca-fb55-4111-9ae0-d849908fe4c4.png)
+  ## Solarized (solid)
+![solarized-solid](https://user-images.githubusercontent.com/83065176/173050299-9793d395-2830-46a7-8091-1e1c7c360927.png)
 
 ## Themeing
 
