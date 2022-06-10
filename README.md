@@ -32,6 +32,7 @@ Emacs as a Text Editor (I would reccomend intalling doom emacs)
 
 # Themes
 
+[Make your own theme](https://github.com/Ftamino/dotfiles#themeing)
   ## Standart (trasnsperent)
   ![standart](https://user-images.githubusercontent.com/83065176/173049288-e32979f1-a706-4b0f-8a14-1b4ea4ef4505.png)
   ## Standart (solid)
@@ -53,7 +54,7 @@ To make your own theme just go into .xmonad/lib/colors and copy one of the .hs f
 # Installing 
 Disclaimer: The script is not perfect and my not work for everyone or destroy sth. I only tested it on PopOS 22.04 twice. If sth does not work open a issue
 
-Pop! OS, Ubuntu, Linux Mint, Debian, etc:
+## Pop! OS, Ubuntu, Linux Mint, Debian, etc:
  1. Install dependences
 ```
 sudo apt install git
@@ -78,10 +79,31 @@ chmod +x ./install-ubuntu.sh
 
  Done
  
-Lazy Ubuntu: 
+## Arch and Arch based:
+
+ 1. Install dependences
 ```
-sudo apt install git; git clone https://github.com/Ftamino/dotfiles.git dotfiles; cd dotfiles; chmod +x ./install-ubuntu.sh; ./install-ubuntu.sh
+sudo pacman -S git
 ```
+ 2. Download the repo
+```
+git clone https://github.com/Ftamino/dotfiles.git dotfiles
+```
+ 3. Go into the downloaded dir
+```
+cd dotfiles
+```
+ 4. Give the script permissions 
+```
+chmod +x ./install-arch.sh
+```
+ 5. Run it
+```
+./install-arch.sh
+```
+ 6. To get the icons in xmobar (top bar) you need to install [Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip)
+
+ Done
 
 Others:
  1. Use your package manager to install dependences (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
