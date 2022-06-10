@@ -15,6 +15,7 @@ mkdir ~/.xmonad
 
 echo Copying Configs
 
+cp  ./configuration.py ~/.configuration.py
 cp -r ./config/dunst ~/.config/
 cp -r ./config/neofetch ~/.config/
 cp ./config/picom/picom.conf ~/.config/
