@@ -39,10 +39,12 @@ import XMonad.Util.Cursor
 --Here you can set a color scheme
 --Avaiable:
 --Standart: Greenish thing
+  --StandartSolid: Standart but without transperency in the top
 --Nord: Nord you know
+  --Nord Solid: Nord but without transperency in the top
 --Solarized: a bit old feeling (;
+  --Solarized Solid: Solarized without transperency in the top
 import Colors.Standart
-
 
 --Defaults
 
@@ -60,7 +62,7 @@ myModMask       = mod4Mask
 
 myFont = "xft:GE Inspira:wight=bold:pixelsize=13:antialias=true:hinting=true"
 
-myWorkspaces = [" www "," sys "," chat "," rec "," game "," vid "," mus "," gimp "," dat "]
+myWorkspaces = [" <fn=1> \xf268 </fn> "," <fn=1> \xf17c </fn> "," <fn=1> \xfb6e </fn> "," <fn=1> \xf03d </fn> "," <fn=1> \xf11b </fn> "," <fn=1> \xf16a </fn> "," <fn=1> \xf001 </fn> "," <fn=1> \xf03e </fn> "," <fn=1> \xf07c </fn> "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..]
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -200,7 +202,6 @@ myManageHook = composeAll
     , title =? "shutdown-menu"                            --> doCenterFloat
     , title =? "Farbe des ausgewählten Texts ändern"      --> doCenterFloat
     , title =? "Dateien öffnen"                           --> doCenterFloat
-    , title =? "Alle Dateien"                             --> doCenterFloat
     , title =? "Skripte"                                  --> doCenterFloat
     , className =? "flameshot"                            --> doFloat
     , className =? "discord"                              --> doShift ( myWorkspaces !! 2 )
@@ -227,7 +228,7 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
 
         --Start Trayer on Monitor 1
-        spawn "killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request --transparent true --alpha 256 --height 19"
+        spawn ("killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request " ++ colorTrayer ++ " --height 19")
 
         -- Start Notfiaction Service
         spawn "killall dunst; dunst"
@@ -277,10 +278,9 @@ main = do
                         { ppOutput = \x -> hPutStrLn xmproc x
                                         >> hPutStrLn xmproc0 x
                         , ppVisible = xmobarColor color01 "" . clickable
-                        , ppCurrent = xmobarColor color02 "" . wrap
-                           ("<box type=Top width=1 mt=2 color=" ++ color03 ++ ">") "</box>"
+                        , ppCurrent = xmobarColor color02 ""
                         , ppHidden = xmobarColor color04 "" . wrap
-                           ("<box type=Bottom width=1 mt=1 color=" ++ color05 ++ ">") "</box>" . clickable
+                           ("<box type=Bottom width=2 color=" ++ color05 ++ ">") "</box>" . clickable
                         , ppHiddenNoWindows = xmobarColor color06 "" . clickable
                         , ppLayout = xmobarColor color08 ""
                         , ppTitle = xmobarColor color07 "" . shorten 60

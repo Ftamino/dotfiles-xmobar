@@ -27,5 +27,5 @@ colorName = "nord.conf" --Sets color for xmobar on monitor 1
 colorName0 = "nord0.conf" --Sets color for xmobar on monitor 2
 
 colorTrayer :: String
-colorTrayer = "--tint 0x2E3440"
+colorTrayer = "--transparent true --alpha 256 --tint 0x002b36" --Alpha for trayer (256=transperent; 0=solid)
 
