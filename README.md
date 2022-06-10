@@ -2,6 +2,15 @@
 
 This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds will come soon. Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
 
+## Table of contents
+[1. Info](https://github.com/Ftamino/dotfiles#info)
+  [1.1 Included Programms](https://github.com/Ftamino/dotfiles#whats-included)
+[2. Themes](https://github.com/Ftamino/dotfiles#themes)
+  [2.1 Premade Themes](https://github.com/Ftamino/dotfiles#standart-trasnsperent)
+  [2.2 Change Themes](https://github.com/Ftamino/dotfiles#themeing)
+[]()
+[]()
+
 ## What's included?
 
 Xmonad as a window manager 
@@ -46,9 +55,12 @@ Emacs as a Text Editor (I would reccomend intalling doom emacs)
   ## Solarized (solid)
 ![solarized-solid](https://user-images.githubusercontent.com/83065176/173050299-9793d395-2830-46a7-8091-1e1c7c360927.png)
 
-## Themeing
+## Change Themes
 
-To change Themes use the Python Programm. A simple python3 ./configuration.py should do it.
+To change Themes use the Python Programm. If the dotfiles are installed use F12 on your keyboard. A simple python3 ./configuration.py should also do it.
+
+## Make Themes
+
 To make your own theme just go into .xmonad/lib/colors and copy one of the .hs files. Give it a new name and change in line 1 behind "Colors." the eg Standart to the name of your file. In line five to the same. Change the scheme in xmonad.hs in the imports section by changing the argument import Colors.Standart to the name of yours.
  
 # Installing 
