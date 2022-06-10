@@ -83,7 +83,7 @@ sudo apt install git; git clone https://github.com/Ftamino/dotfiles.git dotfiles
 Others:
  1. Use your package manager to install dependences (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
  ```
- xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty git flameshot
+ xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty git flameshot arandr
  ```
  2. Download the repo
  ```
