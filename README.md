@@ -2,26 +2,26 @@
 
 This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds will come soon. Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
 
-## Table of contents
+##### Table of contents
 [1. Info](https://github.com/Ftamino/dotfiles#info)
 
-  [1.1 Included Programms](https://github.com/Ftamino/dotfiles#whats-included)
+* [1.1 Included Programms](https://github.com/Ftamino/dotfiles#whats-included) .
   
 [2. Themes](https://github.com/Ftamino/dotfiles#themes)
 
-  [2.1 Premade Themes](https://github.com/Ftamino/dotfiles#standart-trasnsperent)
+*  [2.1 Premade Themes](https://github.com/Ftamino/dotfiles#standart-trasnsperent)
   
-  [2.2 Change Themes](https://github.com/Ftamino/dotfiles#change-themes)
+*  [2.2 Change Themes](https://github.com/Ftamino/dotfiles#change-themes)
   
-  [2.3 Make own Themes](https://github.com/Ftamino/dotfiles#make-themes)
+*  [2.3 Make own Themes](https://github.com/Ftamino/dotfiles#make-themes)
 
 [3. Installation](https://github.com/Ftamino/dotfiles#installing)
 
-  [3.1 Debian based](https://github.com/Ftamino/dotfiles#pop-os-ubuntu-linux-mint-debian-etc)
+*  [3.1 Debian based](https://github.com/Ftamino/dotfiles#pop-os-ubuntu-linux-mint-debian-etc)
 
-  [3.2 Arch based](https://github.com/Ftamino/dotfiles#arch-and-arch-based)
+*  [3.2 Arch based](https://github.com/Ftamino/dotfiles#arch-and-arch-based)
 
-  [3.3 Others](https://github.com/Ftamino/dotfiles#others)
+*  [3.3 Others](https://github.com/Ftamino/dotfiles#others)
 
 ## What's included?
 
