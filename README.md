@@ -107,7 +107,7 @@ chmod +x ./install-ubuntu.sh
 
  1. Install dependences
 ```
-sudo pacman -S git
+sudo pacman -Sy git
 ```
  2. Download the repo
 ```
