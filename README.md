@@ -31,9 +31,13 @@ Emacs as a Text Editor (I would reccomend intalling doom emacs)
 # Themes
 
   ## Standart (trasnsperent)
-  ![standart](https://user-images.githubusercontent.com/83065176/171192508-9170fe4c-e359-44c0-b7f9-9c6a7c79f397.png)
+  ![standart](https://user-images.githubusercontent.com/83065176/173049288-e32979f1-a706-4b0f-8a14-1b4ea4ef4505.png)
+  ## Standart (solid)
+  ![standart-solid](https://user-images.githubusercontent.com/83065176/173049614-06468254-c50d-4831-a302-60686fdaaaf3.png)
   ## Nord (trasnsperent)
-  ![nord](https://user-images.githubusercontent.com/83065176/171192575-fc789119-e4f1-4290-b8a1-6675d7f4b643.png)
+ ![nord](https://user-images.githubusercontent.com/83065176/173049724-bdbab4e6-6eaf-46bf-b14f-f7a518a60821.png)
+  ## Nord (solid)
+  
   ## Solarized (trasnsperent)
 ![Solarized](https://user-images.githubusercontent.com/83065176/171192721-8704b56f-3042-47c7-a7f6-bfc3963c74b8.png)
 
