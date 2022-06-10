@@ -37,7 +37,7 @@ Emacs as a Text Editor (I would reccomend intalling doom emacs)
   ## Nord (trasnsperent)
  ![nord](https://user-images.githubusercontent.com/83065176/173049724-bdbab4e6-6eaf-46bf-b14f-f7a518a60821.png)
   ## Nord (solid)
-  
+  ![nord-solid](https://user-images.githubusercontent.com/83065176/173049916-c36141db-75a1-4a72-a15a-11278ab03eb5.png)
   ## Solarized (trasnsperent)
 ![Solarized](https://user-images.githubusercontent.com/83065176/171192721-8704b56f-3042-47c7-a7f6-bfc3963c74b8.png)
 
