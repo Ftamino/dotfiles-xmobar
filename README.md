@@ -1,11 +1,11 @@
 # Info
 
-This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds will come soon. Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
+This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds is WIP (Open it if installed with Mod+F12). Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
 
 ##### Table of contents
 [1. Info](https://github.com/Ftamino/dotfiles#info)
 
-* [1.1 Included Programms](https://github.com/Ftamino/dotfiles#whats-included) .
+* [1.1 Included Programms](https://github.com/Ftamino/dotfiles#whats-included)
   
 [2. Themes](https://github.com/Ftamino/dotfiles#themes)
 
@@ -69,7 +69,7 @@ Emacs as a Text Editor (I would reccomend intalling doom emacs)
 
 ## Change Themes
 
-To change Themes use the Python Programm. If the dotfiles are installed use F12 on your keyboard. A simple python3 ./configuration.py should also do it.
+To change Themes use the Python Programm. If the dotfiles are installed use F12 on your keyboard. A simple python3 ./configuration.py should also do it. Changing the Themes for GTK will come in the Programm soon, but its also possible to cahange it thorugh lxapperance.
 
 ## Make Themes
 
