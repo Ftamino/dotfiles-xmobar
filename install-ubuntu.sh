@@ -6,7 +6,7 @@ sudo apt upgrade -y
 
 echo Install dependencies
 
-sudo apt install -y xmonad xmobar neofetch lxpolkit dunst fish rofi picom copyq nitrogen emacs kitty flatpak arandr python3 
+sudo apt-get install -y xmonad xmobar neofetch lxpolkit dunst fish rofi picom copyq nitrogen emacs kitty flatpak arandr python3 
 
 flatpak install flameshot
 
