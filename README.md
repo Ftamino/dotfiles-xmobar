@@ -49,7 +49,7 @@ Volumeicon for the volume indicator (To get it working uncomment some lines in s
 
 A costum Python Application to configure themes
 
-Emacs as a Text Editor (I would reccomend intalling doom emacs)
+Doom Emacs as a Text Editor
 
 # Themes
 
@@ -99,7 +99,10 @@ chmod +x ./install-ubuntu.sh
 ```
 ./install-ubuntu.sh
 ```
- 6. To get the icons in xmobar (top bar) you need to install [Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip)
+6. To get fish as the default shell use
+```
+sudo usermod -s yourname /bin/fish
+```
 
  Done
  
@@ -125,7 +128,10 @@ chmod +x ./install-arch.sh
 ```
 ./install-arch.sh
 ```
- 6. To get the icons in xmobar (top bar) you need to install [Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip)
+6. To get fish as the default shell use
+```
+sudo usermod -s yourname /bin/fish
+```
 
  Done
 
