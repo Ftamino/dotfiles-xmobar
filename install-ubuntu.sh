@@ -37,6 +37,6 @@ cp -r ./config/volumeicon ~/.config/
 cp -r ./xmonad/* ~/.xmonad/
 cp ./configuration.py ~/.configuration.py
 cp ./initial-setup.py ~/.initial-setup.py
-
+cp ./logout-manager.py ~/.logout-manager.py
 
 echo Installed
