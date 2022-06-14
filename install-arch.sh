@@ -31,5 +31,7 @@ cp -r ./config/neofetch ~/.config/
 cp ./config/picom/picom.conf ~/.config/
 cp -r ./config/volumeicon ~/.config/
 cp -r ./xmonad/* ~/.xmonad/
+cp ./configuration.py ~/.configuration.py
+cp ./initial-setup.py ~/.initial-setup.py
 
 echo Installed
