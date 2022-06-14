@@ -6,9 +6,11 @@ sudo apt upgrade -y
 
 echo Install dependencies
 
-sudo apt install xmonad xmobar neofetch lxpolkit dunst rofi picom copyq volumeicon nitrogen emacs kitty flatpak arandr python3 
+sudo apt install -y xmonad xmobar neofetch lxpolkit dunst fish rofi picom copyq nitrogen emacs kitty flatpak arandr python3 
 
 flatpak install flameshot
+
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 echo Making xmonad dir
 mkdir ~/.xmonad
