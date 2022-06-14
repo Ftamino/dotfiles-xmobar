@@ -11,6 +11,14 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 echo Installing fish Theme
 omf install bobthefish
 
+echo Installing Doom Emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
+echo Install Nerd Fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip
+unzip 3270.zip -d ~/.fonts
+fc-cache -fv
 
 echo Making xmonad dir
 mkdir ~/.xmonad
