@@ -8,6 +8,10 @@ flatpak install flameshot
 
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
+echo Installing fish Theme
+omf install bobthefish
+
+
 echo Making xmonad dir
 mkdir ~/.xmonad
 
