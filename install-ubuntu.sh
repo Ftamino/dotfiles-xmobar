@@ -24,6 +24,14 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip
 unzip 3270.zip -d ~/.fonts
 fc-cache -fv
 
+echo Install rofi Themes
+
+git clone https://github.com/lr-tech/rofi-themes-collection.git
+cd rofi-themes-collection
+mkdir -p ~/.local/share/rofi/themes/
+cp themes/* ~/.local/share/rofi/themes/
+cd
+
 echo Making xmonad dir
 mkdir ~/.xmonad
 
