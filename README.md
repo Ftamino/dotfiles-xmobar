@@ -76,9 +76,9 @@ To change Themes use the Python Programm. If the dotfiles are installed use F12 
 To make your own theme just go into .xmonad/lib/colors and copy one of the .hs files. Give it a new name and change in line 1 behind "Colors." the eg Standart to the name of your file. In line five to the same. Change the scheme in xmonad.hs in the imports section by changing the argument import Colors.Standart to the name of yours.
  
 # Installing 
-Disclaimer: The script is not perfect and my not work for everyone or destroy sth. I only tested it on PopOS 22.04 twice. If sth does not work open a issue
+Disclaimer: The script is not perfect and my not work for everyone or destroy sth. 
 
-## Pop! OS, Ubuntu, Linux Mint, Debian, etc:
+## Arch, Debian and Arch/Debian based 
  1. Install dependences
 ```
 sudo apt install git
@@ -93,11 +93,11 @@ cd dotfiles
 ```
  4. Give the script permissions 
 ```
-chmod +x ./install-ubuntu.sh
+chmod +x ./install
 ```
  5. Run it
 ```
-./install-ubuntu.sh
+./install
 ```
 6. To get fish as the default shell use
 ```
@@ -106,35 +106,6 @@ sudo usermod -s yourname /bin/fish
 
  Done
  
-## Arch and Arch based:
-
- 1. Install dependences
-```
-sudo pacman -Sy git
-```
- 2. Download the repo
-```
-git clone https://github.com/Ftamino/dotfiles.git dotfiles
-```
- 3. Go into the downloaded dir
-```
-cd dotfiles
-```
- 4. Give the script permissions 
-```
-chmod +x ./install-arch.sh
-```
- 5. Run it
-```
-./install-arch.sh
-```
-6. To get fish as the default shell use
-```
-sudo usermod -s yourname /bin/fish
-```
-
- Done
-
 ## Others:
  1. Use your package manager to install dependences (if u dont use the flatpak of flameshot you have to change the hotkey action for it in the xmonad config)
  ```
