@@ -6,8 +6,8 @@ sudo apt upgrade -y
 
 echo Install dependencies
 
-sudo apt-get install -y xmonad xmobar neofetch lxpolkit dunst fish rofi picom copyq nitrogen emacs kitty flatpak arandr python3 
-
+sudo apt-get install -y xmonad xmobar neofetch lxpolkit dunst fish rofi picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget 
+sudo pacman -Sy xmonad xmobar neofetch lxpolkit dunst fish rofi picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget
 flatpak install flameshot
 
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
