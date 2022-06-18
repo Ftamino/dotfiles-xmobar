@@ -17,11 +17,9 @@ This is my current setup which is using xmonad as a wm. You are able to click th
 
 [3. Installation](https://github.com/Ftamino/dotfiles#installing)
 
-*  [3.1 Debian based](https://github.com/Ftamino/dotfiles#pop-os-ubuntu-linux-mint-debian-etc)
+*  [3.1 Arch, Debian, Arch/Debian based](https://github.com/Ftamino/dotfiles/blob/main/README.md#arch-debian-and-archdebian-based)
 
-*  [3.2 Arch based](https://github.com/Ftamino/dotfiles#arch-and-arch-based)
-
-*  [3.3 Others](https://github.com/Ftamino/dotfiles#others)
+*  [3.2 Others](https://github.com/Ftamino/dotfiles#others)
 
 ## What's included?
 
