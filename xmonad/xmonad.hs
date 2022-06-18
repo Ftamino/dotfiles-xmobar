@@ -14,11 +14,10 @@ import qualified Data.Map        as M
 
     -- Hooks
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.DynamicLog 
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
 
     -- Layouts
 import XMonad.Layout.Grid
@@ -86,7 +85,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch rofi
     , ((modm, xK_y), spawn "rofi -modi run,drun -show drun -show-icons -sidebar-mode")
  
-    --launch google-chrome
+    --launch browser
     , ((modm,               xK_c     ), spawn myBrowser)
 
     --launch flameshot gui
@@ -253,10 +252,10 @@ myStartupHook = do
         --spawn "kdeconnect-indicator"
 
         --Spawn Streamdeck UI
-        spawn "killall streamdeck; streamdeck -n"
+        spawn "killall streamdeck; ~/.local/bin/streamdeck -n"
 
         --Setup screens correctly
-        spawn "/home/finn/.screenlayout/main.sh"
+        spawn "~/.xmonad/screenlayout/main.sh"
 
         --Start open RGB with a color
         spawn "killall openrgb; openrgb -c 16FD31 --startminimized"
@@ -271,20 +270,19 @@ myStartupHook = do
         spawn "copyq &"
 
 
-
 ------------------------------------------------------------------------
 -- Main Function
 
 main = do
-  xmproc0 <- spawnPipe ("killall xmobar; sleep 3; xmobar -x 0 ~/.xmonad/xmobar/" ++ colorName0 ++ "")
-  xmproc <- spawnPipe ("killall xmobar; sleep 3; xmobar -x 1 ~/.xmonad/xmobar/" ++ colorName ++ "")
+  xmproc0 <- spawnPipe ("killall xmobar; sleep 3; xmobar -x 1 ~/.xmonad/xmobar/" ++ colorName0 ++ "")
+  xmproc <- spawnPipe ("killall xmobar; sleep 3; xmobar -x 0 ~/.xmonad/xmobar/" ++ colorName ++ "")
   xmonad $ ewmh . docks $ def {logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc x
                                         >> hPutStrLn xmproc0 x
                         , ppVisible = xmobarColor color01 "" . clickable
                         , ppCurrent = xmobarColor color02 ""
                         , ppHidden = xmobarColor color04 "" . wrap
-                           ("<box type=Bottom width=2 color=" ++ color05 ++ ">") "</box>" . clickable
+                           ("<box type=Bottom width=2 color=" ++ color05 ++ ">")"</box>" . clickable
                         , ppHiddenNoWindows = xmobarColor color06 "" . clickable
                         , ppLayout = xmobarColor color08 ""
                         , ppTitle = xmobarColor color07 "" . shorten 60
@@ -292,6 +290,7 @@ main = do
                         --Uncomment below to remove the layout 
                         --, ppOrder = \(ws:_:l:_) -> [ws,l]
                         }
+
         ,terminal           = myTerminal
         ,focusFollowsMouse  = myFocusFollowsMouse
         ,clickJustFocuses   = myClickJustFocuses
