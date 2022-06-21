@@ -91,11 +91,11 @@ cd dotfiles
 ```
  4. Give the script permissions 
 ```
-chmod +x ./install
+chmod +x ./install.sh
 ```
  5. Run it
 ```
-./install
+./install.sh
 ```
 6. To get fish as the default shell use
 ```
@@ -113,4 +113,4 @@ sudo usermod -s yourname /bin/fish
  ```
  git clone https://github.com/Ftamino/dotfiles.git dotfiles
  ```
- 3. Find out where the files need to go (look at the ubuntnu install script)
+ 3. Find out where the files need to go (look at the install script)
