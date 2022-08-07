@@ -15,7 +15,7 @@ This is my current setup which is using xmonad as a wm. You are able to click th
   
 *  [2.3 Make own Themes](https://github.com/Ftamino/dotfiles#make-themes)
 
-*  [2.4 Material You Themes](https://github.com/Ftamino/dotfiles#make-themes)
+*  [2.4 Material You Themes](https://github.com/Ftamino/dotfiles#make-material-you-themes)
 
 [3. Installation](https://github.com/Ftamino/dotfiles#installing)
 
