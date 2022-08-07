@@ -15,6 +15,8 @@ This is my current setup which is using xmonad as a wm. You are able to click th
   
 *  [2.3 Make own Themes](https://github.com/Ftamino/dotfiles#make-themes)
 
+*  [2.4 Material You Themes](https://github.com/Ftamino/dotfiles#make-themes)
+
 [3. Installation](https://github.com/Ftamino/dotfiles#installing)
 
 *  [3.1 Arch, Debian, Arch/Debian based](https://github.com/Ftamino/dotfiles/blob/main/README.md#arch-debian-and-archdebian-based)
@@ -72,6 +74,10 @@ To change Themes use the Python Programm. If the dotfiles are installed use F12 
 ## Make Themes
 
 To make your own theme just go into .xmonad/lib/colors and copy one of the .hs files. Give it a new name and change in line 1 behind "Colors." the eg Standart to the name of your file. In line five to the same. Change the scheme in xmonad.hs in the imports section by changing the argument import Colors.Standart to the name of yours.
+ 
+## Make Material You Themes
+
+If you ever used a Android 12 phone you probably know that there is that system called material you which changes all the system colors to some of your background. To do that in my xmonad / xmobar config run material-you.sh (It may not work with every shell. I recommend using bash for this.) and you are done. This System is still not ready and im working on improving it. If you want you can help making the script better or modify it for your dotfiles. 
  
 # Installing 
 Disclaimer: The script is not perfect and my not work for everyone or destroy sth. 
