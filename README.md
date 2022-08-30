@@ -85,7 +85,7 @@ Disclaimer: The script is not perfect and my not work for everyone or destroy st
 ## Arch, Debian and Arch/Debian based 
  1. Install dependences
 ```
-sudo apt install git
+sudo apt install git whiptail
 ```
  2. Download the repo
 ```
