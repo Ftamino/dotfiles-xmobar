@@ -77,7 +77,7 @@ To make your own theme just go into .xmonad/lib/colors and copy one of the .hs f
  
 ## Make Material You Themes
 
-If you ever used a Android 12 phone you probably know that there is that system called material you which changes all the system colors to some of your background. To do that in my xmonad / xmobar config run material-you.sh (It may not work with every shell. I recommend using bash for this.) and you are done. This System is still not ready and im working on improving it. If you want you can help making the script better or modify it for your dotfiles. 
+If you ever used a Android 12 phone you probably know that there is that system called material you which changes all the system colors to some of your background. To do that open the configuration (Meta/Windows Key+F12) go to Change Color Scheme - Material You, and you are done. This System is still not ready and im working on improving it. If you want you can help making the script better or modify it for your dotfiles. 
  
 # Installing 
 Disclaimer: The script is not perfect and my not work for everyone or destroy sth. 
