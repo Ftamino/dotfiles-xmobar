@@ -22,6 +22,7 @@ import XMonad.Hooks.SetWMName
 
 -- Layouts
 import XMonad.Layout.Grid
+import XMonad.Layout.Gaps
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.NoBorders
 import XMonad.Layout.MouseResizableTile
@@ -29,13 +30,16 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.MultiColumns
 import XMonad.Layout.SimpleFloat
+import XMonad.Layout.Spacing
 
 -- Utilities
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
 import XMonad.Util.Loggers
 import XMonad.Util.Cursor
- --Here you can set a color scheme
+
+
+--Here you can set a color scheme
 --Avaiable:
 --Standart: Greenish thing
   --StandartSolid: Standart but without transperency in the top
@@ -73,21 +77,13 @@ myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..]
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
  
     where i = fromJust $ M.lookup ws myWorkspaceIndices
- 
- 
- 
+
 myNormalBorderColor  = colorBack
  
 myFocusedBorderColor = colorFore
- 
- 
-
----------------------------------------------------------------------------
+  ---------------------------------------------------------------------------
  
 -- Key bindings. Add, modify or remove key bindings here.
- 
- 
-
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
    -- launch a terminal
@@ -96,145 +92,78 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     ((modm,               xK_t), spawn "kitty") 
  
-    
- 
-   
- 
     -- launch rofi
  
     , ((modm, xK_y), spawn "rofi -modi run,drun,window -show drun -show-icons -sidebar-mode")
- 
- 
  
     --launch browser
  
     , ((modm,               xK_c     ), spawn myBrowser)
  
- 
-
     --launch flameshot gui
  
     , ((0,               xK_Print ), spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=flameshot org.flameshot.Flameshot gui")
- 
- 
 
     --open the xmonad.hs config with emacs
  
-    , ((modm,            xK_F10 ), spawn "emacs ~/.xmonad/xmonad.hs")
- 
-    
- 
-    --Media keys
+    , ((modm,            xK_F10 ), spawn "emacsclient -c -a 'emasc'")
+      --Media keys
  
     , ((0, 0x1008ff13), spawn "amixer set Master 5%+ unmute")
  
     , ((0, 0x1008ff11), spawn "amixer set Master 5%- unmute")
  
     , ((0, 0x1008ff12), spawn "amixer set Master 100%- unmute")
- 
- 
-
-    , ((modm,            xK_F12 ), spawn "python3 ~/.configuration.py")
- 
- 
-
-    -- close focused window
+      , ((modm,            xK_F12 ), spawn "python3 ~/.configuration.py")
+      -- close focused window
  
     , ((modm,               xK_q    ), kill)
- 
- 
-
-    -- Rotate through the available layout algorithms
+      -- Rotate through the available layout algorithms
  
     , ((modm,               xK_space ), sendMessage NextLayout)
- 
- 
-
-    --  Reset the layouts on the current workspace to default
+      --  Reset the layouts on the current workspace to default
  
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
- 
- 
-
-    -- Toggle Fullscreen
+      -- Toggle Fullscreen
  
     , ((modm,               xK_F11), sendMessage (Toggle "Full"))
- 
- 
-
-    -- Resize viewed windows to the correct size
+      -- Resize viewed windows to the correct size
  
     , ((modm,               xK_n     ), refresh)
- 
- 
-
-    -- Move focus to the next window
+      -- Move focus to the next window
  
     , ((modm,               xK_Tab   ), windows W.focusDown)
- 
- 
-
-    -- Move focus to the next window
+      -- Move focus to the next window
  
     , ((modm,               xK_j     ), windows W.focusDown)
- 
- 
-
-    -- Move focus to the previous window
+      -- Move focus to the previous window
  
     , ((modm,               xK_k     ), windows W.focusUp)
- 
- 
-
-    -- Move focus to the master window
+      -- Move focus to the master window
  
     , ((modm,               xK_m     ), windows W.focusMaster)
- 
- 
-
-    -- Swap the focused window and the master window
+      -- Swap the focused window and the master window
  
     , ((modm,               xK_Return), windows W.swapMaster)
- 
- 
-
-    -- Swap the focused window with the next window
+      -- Swap the focused window with the next window
  
     , ((modm .|. shiftMask, xK_a     ), windows W.swapDown)
- 
- 
-
-    -- Swap the focused window with the previous window
+      -- Swap the focused window with the previous window
  
     , ((modm .|. shiftMask, xK_d     ), windows W.swapUp)
- 
- 
-
-    -- Shrink the master area
+      -- Shrink the master area
  
     , ((modm,               xK_a     ), sendMessage Shrink)
- 
- 
-
-    -- Expand the master area
+      -- Expand the master area
  
     , ((modm,               xK_d     ), sendMessage Expand)
- 
- 
-
-    -- Push window back into tiling
+      -- Push window back into tiling
  
     , ((modm .|. shiftMask, xK_t     ), withFocused $ windows . W.sink)
+      -- Quit Dialog
  
- 
-
-    -- Quit Dialog
- 
-    , ((modm .|. shiftMask, xK_o     ), spawn "python3 /home/finn/.logout-manager.py")
- 
- 
-
-    -- Restart xmonad
+    , ((modm .|. shiftMask, xK_o     ), spawn "python3 ~/.logout-manager.py")
+      -- Restart xmonad
  
     , ((modm              , xK_z     ), spawn "xmonad --recompile; xmonad --restart")
  
@@ -245,10 +174,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-[1..9], Switch to workspace N
  
     -- mod-shift-[1..9], Move client to workspace N
- 
- 
-
-    [((m .|. modm, k), windows $ f i)
+      [((m .|. modm, k), windows $ f i)
  
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
  
@@ -269,63 +195,33 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
  
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
- 
- 
- 
- ----------------------------------------------------------------------
+   ----------------------------------------------------------------------
  
 -- Mouse bindings: default actions bound to mouse events
- 
- 
-
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
- 
- 
-
-    -- mod-button1, Set the window to floating mode and move by dragging
+      -- mod-button1, Set the window to floating mode and move by dragging
  
     [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
  
                                        >> windows W.shiftMaster))
- 
- 
-
-    -- mod-button2, Raise the window to the top of the stack
+      -- mod-button2, Raise the window to the top of the stack
  
     , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
- 
- 
-
-    -- mod-button3, Set the window to floating mode and resize by dragging
+      -- mod-button3, Set the window to floating mode and resize by dragging
  
     , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
  
                                        >> windows W.shiftMaster))
- 
- 
-
-    -- you may also bind events to the mouse scroll wheel (button4 and button5)
+      -- you may also bind events to the mouse scroll wheel (button4 and button5)
  
     ]
- 
- 
-
-------------------------------------------------------------------------
+  ------------------------------------------------------------------------
  
 -- Layouts:
- 
- 
-
-myLayout = toggleLayouts (noBorders Full) (avoidStruts (Tall 1 (3/100) (1/2) ||| Grid ||| multiCol [1] 1 0.01 (-0.5) ||| Mirror (Tall 1 (3/100) (3/5))  ))                           
- 
-                          
- 
--------------------------------------------------------------------------
+myLayout = toggleLayouts (noBorders Full) (avoidStruts ( smartSpacing 4 $  Tall 1 (3/100) (1/2) ||| Grid ||| multiCol [1] 1 0.01 (-0.5) ||| Mirror (Tall 1 (3/100) (3/5))  ))
+  -------------------------------------------------------------------------
  
 -- Window rules:
- 
- 
-
 myManageHook = composeAll
  
     [
@@ -355,132 +251,68 @@ myManageHook = composeAll
     , isDialog --> doFloat
  
     ]
- 
- 
-
-------------------------------------------------------------------------
+  ------------------------------------------------------------------------
  
 -- Event handling
- 
- 
-
 myEventHook = mempty
- 
- 
-
-------------------------------------------------------------------------
+  ------------------------------------------------------------------------
  
 -- Status bars and logging
- 
- 
-
---myLogHook = return ()
- 
- 
-
-------------------------------------------------------------------------
+  --myLogHook = return ()
+  ------------------------------------------------------------------------
  
 -- Startup hook
- 
- 
-
 myStartupHook = do
- 
- 
-
-        --Start nitrogen for wallpaper
+          --Start nitrogen for wallpaper
  
         spawnOnce "nitrogen --restore &"
- 
- 
-
-        --Start Trayer on Monitor 1
+          --Start Trayer on Monitor 1
  
         spawn ("killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request " ++ colorTrayer ++ " --height 19")
- 
- 
-
-        -- Start Notfiaction Service
+          -- Start Notfiaction Service
  
         spawn "killall dunst; dunst"
- 
- 
-
-        --Spawn Flameshot
+          --Spawn Flameshot
  
         spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=flameshot org.flameshot.Flameshot"
- 
- 
-
-        --Spawn Discord
+          --Spawn Discord
  
         --spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=discord com.discordapp.Discord"
- 
- 
-
-        --Set default Cursor
+          --Set default Cursor
  
         setDefaultCursor xC_left_ptr
- 
- 
-
-        --Spawn Volumeicon
+          --Spawn Volumeicon
  
         --spawn "killall volumeicon; volumeicon"
- 
- 
-
-        --Laucnch Kde Connect Indicator
+          --Laucnch Kde Connect Indicator
  
         --spawn "kdeconnect-indicator"
- 
- 
-
-        --Spawn Streamdeck UI
+          --Spawn Streamdeck UI
  
         spawn "killall streamdeck; ~/.local/bin/streamdeck -n"
- 
- 
-
-        --Setup screens correctly
+          --Setup screens correctly
  
         spawn "~/.xmonad/screenlayout/main.sh"
- 
- 
-
-        --Start open RGB with a color
+          --Start open RGB with a color
  
         --spawn "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=openrgb org.openrgb.OpenRGB "
- 
- 
-
-        --Start lxpolkit for authentication
+          --Start lxpolkit for authentication
  
         spawn "lxpolkit &"
- 
- 
-
-        --Spwan picom
+          --Spwan picom
  
         spawn "killall picom; sleep 2; picom &"
- 
- 
-
-        --Spawn CopyQ
+          --Spawn CopyQ
  
         spawn "copyq &"
- 
- 
+          --Spawn Emacs deamon
 
+        spawn "/usr/bin/emacs --daemon"
+          
         setWMName "LG3D"
- 
- 
- 
- ------------------------------------------------------------------------
- 
+  
+------------------------------------------------------------------------
 -- Main Function
- 
- 
 
 main = do
  
@@ -515,10 +347,7 @@ main = do
                         --, ppOrder = \(ws:_:l:_) -> [ws,l]
  
                         }
- 
- 
-
-        ,terminal           = myTerminal
+          ,terminal           = myTerminal
  
         ,focusFollowsMouse  = myFocusFollowsMouse
  

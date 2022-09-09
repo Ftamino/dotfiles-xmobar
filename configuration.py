@@ -123,6 +123,9 @@ class MyWindow2(Gtk.Window):
 
         colorBtn6 = Gtk.RadioButton.new_with_label_from_widget(colorBtn5, label="Solarized Solid")
         colorBtn6.connect("clicked", self.on_clicked,"SolarizedSolid")
+        
+        colorBtn7 = Gtk.RadioButton.new_with_label_from_widget(colorBtn6, label="Material You")
+        colorBtn7.connect("clicked", self.on_materialyou_clicked)
 
         colorBtn12 = Gtk.Button(label="Back To Main Menu")
         colorBtn12.set_hexpand(True)
@@ -142,6 +145,7 @@ class MyWindow2(Gtk.Window):
         grid4.attach(colorBtn4,  0, 7, 1, 1)
         grid4.attach(colorBtn5,  1, 7, 1, 1)
         grid4.attach(colorBtn6,  2, 7, 1, 1)
+        grid4.attach(colorBtn7,  3, 7, 1, 1)
         grid4.attach(label3,     0, 9, 4, 1)
         grid4.attach(colorBtn12, 0, 10, 2, 1)
         grid4.attach(colorBtn13, 2, 10, 2, 1)
@@ -161,11 +165,15 @@ class MyWindow2(Gtk.Window):
         else:
             print("Something else:", choice)
 
+    def on_materialyou_clicked(self, widget):
+        mat_you = 'kitty /bin/bash ~/.xmonad/material-you/material-you.sh '
+        os.system(mat_you)
+        
 
     def on_colorBtn12_clicked(self, widget):
         print("Back To Main Menu")
         win2.hide()
-        win1.show_all()
+        win1.show_all()  
         
 class MyWindow3(Gtk.Window):
     def __init__(self):
