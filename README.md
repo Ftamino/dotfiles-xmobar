@@ -55,17 +55,19 @@ Doom Emacs as a Text Editor
 
 [Make your own theme](https://github.com/Ftamino/dotfiles#themeing)
   ## Standart (trasnsperent)
-  ![standart](https://user-images.githubusercontent.com/83065176/173049288-e32979f1-a706-4b0f-8a14-1b4ea4ef4505.png)
+  ![standart](https://i.imgur.com/MQ3wv5G.png)
   ## Standart (solid)
-  ![standart-solid](https://user-images.githubusercontent.com/83065176/173049614-06468254-c50d-4831-a302-60686fdaaaf3.png)
+  ![standart-solid](https://i.imgur.com/OPYtJfJ.png)
   ## Nord (trasnsperent)
- ![nord](https://user-images.githubusercontent.com/83065176/173049724-bdbab4e6-6eaf-46bf-b14f-f7a518a60821.png)
+ ![nord](https://i.imgur.com/zvlhrsu.png)
   ## Nord (solid)
-  ![nord-solid](https://user-images.githubusercontent.com/83065176/173049916-c36141db-75a1-4a72-a15a-11278ab03eb5.png)
+  ![nord-solid](https://i.imgur.com/jr06krd.png)
   ## Solarized (trasnsperent)
-![solarized](https://user-images.githubusercontent.com/83065176/173050234-bdd0d3ca-fb55-4111-9ae0-d849908fe4c4.png)
+![solarized](https://i.imgur.com/GVzHbWA.png)
   ## Solarized (solid)
-![solarized-solid](https://user-images.githubusercontent.com/83065176/173050299-9793d395-2830-46a7-8091-1e1c7c360927.png)
+![solarized-solid](https://i.imgur.com/KzkBVoZ.png)
+  ## Material You Example
+![Mat-You](https://i.imgur.com/4F19Lds.jpg)
 
 ## Change Themes
 
