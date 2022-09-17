@@ -64,4 +64,3 @@ sed -i 's/colorTrayBack/'$color'/g' ~/.xmonad/lib/Colors/MaterialYou.hs
 #restart
 xmonad --restart
 
-

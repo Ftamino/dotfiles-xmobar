@@ -27,5 +27,5 @@ colorName = "solarized-solid.conf"  --Xmobar Config to be used for mon 1
 colorName0 = "solarized0-solid.conf"  --Xmobar Config to be used for mon 2
 
 colorTrayer :: String
-colorTrayer = "--transparent true --alpha 0 --tint 0x282c34" --Alpha for trayer (256=transperent; 0=solid)
+colorTrayer = "--transparent true --alpha 0 --tint 0x282c34 --distancefrom right --distance 40" --Alpha for trayer (256=transperent; 0=solid)
 

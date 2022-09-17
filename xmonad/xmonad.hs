@@ -48,7 +48,7 @@ import XMonad.Util.Cursor
 --Solarized: a bit old feeling (;
   --Solarized Solid: Solarized without transperency in the top
 
-import Colors.Standart
+import Colors.MaterialYou
 
 --Defaults
 
@@ -268,7 +268,7 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
           --Start Trayer on Monitor 1
  
-        spawn ("killall trayer; trayer --monitor 1 --edge top --align right --SetDockType true --expand true --widthtype request " ++ colorTrayer ++ " --height 19")
+        spawn ("killall trayer; trayer --monitor 2 --edge top --align right --SetDockType true --expand true --widthtype request " ++ colorTrayer ++ " --height 19")
           -- Start Notfiaction Service
  
         spawn "killall dunst; dunst"
