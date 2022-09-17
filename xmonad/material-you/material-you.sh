@@ -51,6 +51,16 @@ sed -i 's/colorFore = "02color"*/colorFore = "'$COLOR2'"/g' ~/.xmonad/lib/Colors
 sed -i 's/01color/'$COLOR1'/g' ~/.xmonad/xmobar/materialYou.conf
 sed -i 's/01color/'$COLOR1'/g' ~/.xmonad/xmobar/materialYou0.conf
 
+#Invert a color to get a background for xmobar and applay it to xmobar and trayer
+printf -v color '#%06X' $((0x${COLOR1#\#} ^ 0xFFFFFF))
+
+sed -i 's/00color/'$color'/g' ~/.xmonad/xmobar/materialYou.conf
+sed -i 's/00color/'$color'/g' ~/.xmonad/xmobar/materialYou0.conf
+
+color="$(echo $color | tr -d '#')"
+
+sed -i 's/colorTrayBack/'$color'/g' ~/.xmonad/lib/Colors/MaterialYou.hs
+
 #restart
 xmonad --restart
 

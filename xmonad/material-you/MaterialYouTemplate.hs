@@ -27,4 +27,4 @@ colorName = "materialYou.conf" --Xmobar Config to be used for mon 1
 colorName0 = "materialYou0.conf"  --Xmobar Config to be used for mon 2
 
 colorTrayer :: String
-colorTrayer = "--transparent true --alpha 0 --tint 0x282c34" --Alpha for trayer (256=transperent; 0=solid)
+colorTrayer = "--transparent true --alpha 0 --tint 0xcolorTrayBack" --Alpha for trayer (256=transperent; 0=solid)
