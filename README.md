@@ -23,6 +23,8 @@ This is my current setup which is using xmonad as a wm. You are able to click th
 
 *  [3.2 Others](https://github.com/Ftamino/dotfiles#others)
 
+[4. Troubleshooting](https://github.com/Ftamino/dotfiles#troubleshooting)
+
 ## What's included?
 
 Xmonad as a window manager 
