@@ -27,5 +27,4 @@ colorName = "nord-solid.conf" --Sets color for xmobar on monitor 1
 colorName0 = "nord0-solid.conf" --Sets color for xmobar on monitor 2
 
 colorTrayer :: String
-colorTrayer = "--transparent true --alpha 0 --tint 0x282c34 --distancefrom right --distance 40" --Alpha for trayer (256=transperent; 0=solid)
-
+colorTrayer = "--transparent true --alpha 0 --tint 0x282c34 --edge top --align right --widthtype request --heighttype pixel --height 30 --SetDockType true --SetPartialStrut true --distance 10 --margin 20" --Alpha for trayer (256=transperent; 0=solid)
