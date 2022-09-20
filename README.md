@@ -57,19 +57,19 @@ Doom Emacs as a Text Editor
 
 [Make your own theme](https://github.com/Ftamino/dotfiles#themeing)
   ## Standart (trasnsperent)
-  ![standart](https://i.imgur.com/MQ3wv5G.png)
+  ![standart](https://i.imgur.com/7b1osbU.png)
   ## Standart (solid)
-  ![standart-solid](https://i.imgur.com/OPYtJfJ.png)
+  ![standart-solid](https://i.imgur.com/bWLnC0c.png)
   ## Nord (trasnsperent)
- ![nord](https://i.imgur.com/zvlhrsu.png)
+ ![nord](https://i.imgur.com/Ky5Exes.png)
   ## Nord (solid)
-  ![nord-solid](https://i.imgur.com/jr06krd.png)
+  ![nord-solid](https://i.imgur.com/ALXcVfr.png)
   ## Solarized (trasnsperent)
-![solarized](https://i.imgur.com/GVzHbWA.png)
+![solarized](https://i.imgur.com/O58F9pc.png)
   ## Solarized (solid)
-![solarized-solid](https://i.imgur.com/KzkBVoZ.png)
+![solarized-solid](https://i.imgur.com/zVZkqdx.png)
   ## Material You Example
-![Mat-You](https://i.imgur.com/4F19Lds.jpg)
+![Mat-You](https://i.imgur.com/TizwZG7.png)
 
 ## Change Themes
 
