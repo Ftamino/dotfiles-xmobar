@@ -3,6 +3,7 @@
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
+import tkinter as tk
 
 import os
 from os.path import exists
@@ -42,7 +43,7 @@ class MyWindow1(Gtk.Window):
         button3.set_hexpand(True)
         button3.connect("clicked", self.on_button3_clicked)
         
-        button4 = Gtk.Button(label="Hotkeys")
+        button4 = Gtk.Button(label="Change Browser")
         button4.set_hexpand(True)
         button4.connect("clicked", self.on_button4_clicked)
         
@@ -161,6 +162,8 @@ class MyWindow2(Gtk.Window):
                print ("Choice is 'don't change'")
             else:
                subprocess.run(["sed", "-i", 's/import Colors.*/import Colors.' + choice + '/g', home + "/.xmonad/xmonad.hs"])
+               subprocess.run(["sed", "-i", 's/import Colors.*/import Colors.' + choice + '/g', home + "/.xmonad/lib/Modules/Defaults.hs"])
+               subprocess.run(["sed", "-i", 's/import Colors.*/import Colors.' + choice + '/g', home + "/.xmonad/lib/Modules/Startup.hs"])
                subprocess.run(["xmonad", "--restart"])
         else:
             print("Something else:", choice)
@@ -177,70 +180,51 @@ class MyWindow2(Gtk.Window):
         
 class MyWindow3(Gtk.Window):
     def __init__(self):
-        super().__init__(title="Hotkey List")
+        Gtk.Window.__init__(self, title="Change Browser")
 
-        self.set_border_width(10)
-        self.set_default_size(700, 300)
-        self.set_position(Gtk.WindowPosition.CENTER)
-        self.set_resizable(False)
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
 
-        frame3 = Gtk.Frame(label="Hotkeys")
+        label = Gtk.Label(label="Enter new browser name:")
+        vbox.pack_start(label, True, True, 0)
 
-        grid3 = Gtk.Grid(row_spacing    = 10,
-                         column_spacing = 10,
-                         column_homogeneous = True)
+        self.entry = Gtk.Entry()
+        vbox.pack_start(self.entry, True, True, 0)
 
-        label0 = Gtk.Label(label="Open Terminal : Mod+T")
-        label0.set_hexpand(True)
+        button1 = Gtk.Button(label="Save")
+        button1.connect("clicked", self.on_save_clicked)
+        vbox.pack_start(button1, True, True, 0)
+
+        button2 = Gtk.Button(label="Back to Main Menu")
+        button2.connect("clicked", self.close_w3)
+        vbox.pack_start(button2, True, True, 0)
+
+        grid3 = Gtk.Grid()
+        grid3.attach(vbox, 0, 0, 1, 1)
+        grid3.attach(button1, 0, 1, 1, 1)
+        grid3.attach(button2, 1, 1, 1, 1)
+        self.add(grid3)
+    
+    def on_save_clicked(self, button):
+        new_browser = self.entry.get_text()
+        with open("/home/finn/.xmonad/lib/Modules/Defaults.hs", "r") as f:
+            lines = f.readlines()
+
+        with open("/home/finn/.xmonad/lib/Modules/Defaults.hs", "w") as f:
+            for line in lines:
+                if "myBrowser" in line:
+                    parts = line.split("=")
+                    if len(parts) == 2:
+                        old_browser = parts[1].strip()
+                        if old_browser.startswith("\"") and old_browser.endswith("\""):
+                            old_browser = old_browser[1:-1]
+                        if old_browser.startswith("(") and old_browser.endswith(")"):
+                            old_browser = old_browser[1:-1]
+                        line = f"myBrowser = \"{new_browser}\"\n"
+                f.write(line)
         
-        label1 = Gtk.Label(label="Open Launcher : Mod+Y")
-        label1.set_hexpand(True)
-
-        label2 = Gtk.Label(label="Open Browser  :  Mod+C")
-        label2.set_hexpand(True)
-        
-        label3 = Gtk.Label(label="Make a Screenshot : Print")
-        label3.set_hexpand(True)
-        
-        label4 = Gtk.Label(label="Control Volume : Media Keys")
-        label4.set_hexpand(True)
-        
-        label5 = Gtk.Label(label="Close active Window : Mod + Q")
-        label5.set_hexpand(True)
-        
-        label6 = Gtk.Label(label="Toggle Fullscreen : Mod + F11")
-        label6.set_hexpand(True)
-        
-        label7 = Gtk.Label(label="Restart xmonad : Mod + Z")
-        label7.set_hexpand(True)
-        
-        colorBtn1 = Gtk.Button(label="Back To Main Menu")
-        colorBtn1.set_hexpand(True)
-        colorBtn1.connect("clicked", self.on_colorBtn1_clicked)
-
-        colorBtn2 = Gtk.Button(label="Exit")
-        colorBtn2.set_hexpand(True)
-        colorBtn2.connect("clicked", Gtk.main_quit)
-
-        
-        grid3.attach(label0,  0, 6, 1, 1)
-        grid3.attach(label1,  1, 6, 1, 1)
-        grid3.attach(label2,  2, 6, 1, 1)
-        grid3.attach(label3,  3, 6, 1, 1)
-        grid3.attach(label4,  0, 7, 1, 1)
-        grid3.attach(label5,  1, 7, 1, 1)
-        grid3.attach(label6,  2, 7, 1, 1)
-        grid3.attach(label7,  3, 7, 1, 1)
-        grid3.attach(colorBtn1, 0, 10, 2, 1)
-        grid3.attach(colorBtn2, 2, 10, 2, 1)
-
-        self.add(frame3)
-        frame3.add(grid3)
-
-    def on_colorBtn1_clicked(self, widget):
-        print("Back To Main Menu")
-        win3.hide()
-        win1.show_all()
+    def close_w3(self, button) :  
+         win3.hide()
+         win1.show_all()
 
 win1 = MyWindow1()
 win2 = MyWindow2()
