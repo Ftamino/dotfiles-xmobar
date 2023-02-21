@@ -20,12 +20,26 @@ rm mat-you.png
 rm $IMAGEBACKUP
 
 sed -i 's/import Colors.*/import Colors.MaterialYou/g' ~/.xmonad/xmonad.hs
+sed -i 's/import Colors.*/import Colors.MaterialYou/g' ~/.xmonad/lib/Modules/Defaults.hs
+sed -i 's/import Colors.*/import Colors.MaterialYou/g' ~/.xmonad/lib/Modules/Startup.hs
+
 rm ~/.xmonad/lib/Colors/MaterialYou.hs
 rm ~/.xmonad/xmobar/materialYou.conf
 rm ~/.xmonad/xmobar/materialYou0.conf
 cp ~/.xmonad/material-you/MaterialYouTemplate.hs ~/.xmonad/lib/Colors/MaterialYou.hs
 cp ~/.xmonad/material-you/materialYouTemplate.conf ~/.xmonad/xmobar/materialYou.conf
 cp ~/.xmonad/material-you/materialYouTemplate0.conf ~/.xmonad/xmobar/materialYou0.conf
+
+
+#Monitors Config
+cp ~/.xmonad/screenlayout/main.sh ~/tmp.matyou 
+
+
+
+#cat ~/tmp.matyou | tr -d 'randr' | tr -d 'output' | tr -d 'off' | tr -d 'mode' | tr -d 'pos' | tr -d 'rotate' | tr -d '#!/bin/sh' > tmp.matyou
+
+
+
 
 #Change the colors
 echo "Applying colors to theme..."
@@ -51,6 +65,7 @@ sed -i 's/colorFore = "02color"*/colorFore = "'$COLOR2'"/g' ~/.xmonad/lib/Colors
 sed -i 's/01color/'$COLOR1'/g' ~/.xmonad/xmobar/materialYou.conf
 sed -i 's/01color/'$COLOR1'/g' ~/.xmonad/xmobar/materialYou0.conf
 
+
 #Invert a color to get a background for xmobar and applay it to xmobar and trayer
 printf -v color '#%06X' $((0x${COLOR1#\#} ^ 0xFFFFFF))
 
@@ -63,4 +78,3 @@ sed -i 's/colorTrayBack/'$color'/g' ~/.xmonad/lib/Colors/MaterialYou.hs
 
 #restart
 xmonad --restart
-
