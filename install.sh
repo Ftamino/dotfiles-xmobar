@@ -3,27 +3,27 @@
 echo Starting Installer
 echo Updating
 
-#if [ -f /etc/debian_version ]; then
-#  sudo apt update
-#  sudo apt upgrade -y
-#elif [ -f /etc/arch-release ]; then
-#  sudo pacman -Syu
-#else
-#  echo "Unsupported distribution."
-#  exit 1
-#fi
+if [ -f /etc/debian_version ]; then
+  sudo apt update
+  sudo apt upgrade -y
+elif [ -f /etc/arch-release ]; then
+  sudo pacman -Syu
+else
+  echo "Unsupported distribution."
+  exit 1
+fi
 
 echo Install dependencies
 
-#if [ -f /etc/debian_version ]; then
-#  sudo apt-get install -y xmonad xmobar neofetch lxpolkit dunst fish picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget 
-#elif [ -f /etc/arch-release ]; then
-#  sudo pacman -S xmonad xmobar neofetch lxpolkit dunst fish picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget
-#  flatpak install flameshot
-#else
-#  echo "Unsupported distribution."
-#  exit 1
-#fi
+if [ -f /etc/debian_version ]; then
+  sudo apt-get install -y xmonad xmobar neofetch lxpolkit dunst fish picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget 
+elif [ -f /etc/arch-release ]; then
+  sudo pacman -S xmonad xmobar neofetch lxpolkit dunst fish picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget
+  flatpak install flameshot
+else
+  echo "Unsupported distribution."
+  exit 1
+fi
 
 echo Install Fish Theme
 curl -L https://get.oh-my.fish | fish
