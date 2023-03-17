@@ -91,8 +91,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Push window back into tiling 
     , ((modm .|. shiftMask, xK_t     ), withFocused $ windows . W.sink)
     
-    -- Quit Dialog 
-    , ((modm .|. shiftMask, xK_o     ), spawn "python3 ~/.logout-manager.py")
+    -- Quit Dialog (Uncomment the first one to get a simpler logout menu)
+    --, ((modm .|. shiftMask, xK_o     ), spawn "python3 ~/.logout-manager.py")
+    , ((modm .|. shiftMask, xK_o     ), spawn "~/.config/rofi/powermenu/type-2/powermenu.sh")
     
     -- Restart xmonad 
     , ((modm              , xK_z     ), spawn "xmonad --recompile; xmonad --restart")
