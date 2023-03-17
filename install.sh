@@ -32,6 +32,11 @@ cd rofi-themes-collection
 mkdir -p ~/.local/share/rofi/themes/
 cp themes/* ~/.local/share/rofi/themes/
 cd
+git clone --depth=1 https://github.com/adi1090x/rofi.git
+cd rofi
+chmod +x setup.sh
+./setup.sh
+cd
 
 echo Making xmonad dir
 mkdir ~/.xmonad
