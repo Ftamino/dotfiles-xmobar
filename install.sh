@@ -1,7 +1,25 @@
 #!/bin/bash
 
-echo Starting Installer
-echo Updating
+if [[ $1 == "--help" ]]; then
+  echo "This script installs various applications and configures them to provide a customized xmonad desktop experience."
+  echo "Usage: ./install.sh"
+  echo "Options:"
+  echo "  --help        Display this help message"
+  exit 0
+fi
+
+# Set color codes
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+WHITE="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}Starting Installer${RESET}"
+echo -e "${BLUE}Updating${RESET}"
 
 if [ -f /etc/debian_version ]; then
   sudo apt update
@@ -9,11 +27,11 @@ if [ -f /etc/debian_version ]; then
 elif [ -f /etc/arch-release ]; then
   sudo pacman -Syu
 else
-  echo "Unsupported distribution."
+  echo -e "${RED}Unsupported distribution.${RESET}"
   exit 1
 fi
 
-echo Install dependencies
+echo -e "${BLUE}Install dependencies${RESET}"
 
 if [ -f /etc/debian_version ]; then
   sudo apt-get install -y xmonad xmobar neofetch lxpolkit dunst fish picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget 
@@ -21,25 +39,25 @@ elif [ -f /etc/arch-release ]; then
   sudo pacman -S xmonad xmobar neofetch lxpolkit dunst fish picom copyq nitrogen emacs kitty flatpak arandr python3 curl wget
   flatpak install flameshot
 else
-  echo "Unsupported distribution."
+  echo -e "${RED}Unsupported distribution.${RESET}"
   exit 1
 fi
 
-echo Install Fish Theme
+echo -e "${BLUE}Install Fish Theme${RESET}"
 curl -L https://get.oh-my.fish
 omf install bobthefish
 
-echo Installing Doom Emacs
+echo -e "${BLUE}Installing Doom Emacs${RESET}"
 rm -rf ~/.emacs.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 
-echo Install Nerd Fonts
+echo -e "${BLUE}Install Nerd Fonts${RESET}"
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip
 unzip 3270.zip -d ~/.fonts
 fc-cache -fv
 
-echo Copying Configs
+echo -e "${BLUE}Copying Configs${RESET}"
 
 cp  ./configuration.py ~/.configuration.py
 cp -r ./config/dunst ~/.config/
@@ -51,13 +69,13 @@ cp ./configuration.py ~/.configuration.py
 cp ./initial-setup.py ~/.initial-setup.py
 cp ./logout-manager.py ~/.logout-manager.py
 
-echo Making xmonad dir
+echo -e "${BLUE}Making xmonad dir${RESET}"
 mkdir -p ~/.xmonad
 
-echo Installed
+echo -e "${GREEN}Installed${RESET}"
 
 # prompt user for rofi themes installation
-echo "Do you want to install rofi themes? (y/n)"
+echo -e "${BLUE}Do you want to install rofi themes? (y/n)${RESET}"
 read install_rofi_themes
 
 if [[ $install_rofi_themes =~ ^[Yy]$ ]]
@@ -67,7 +85,7 @@ then
   elif [ -f /etc/arch-release ]; then
     sudo pacman -S git
   else
-    echo "Unsupported distribution."
+    echo -e "${RED}Unsupported distribution.${RESET}"
     exit 1
   fi
 
@@ -75,11 +93,4 @@ then
   cd rofi-themes-collection
   mkdir -p ~/.local/share/rofi/themes/
   cp themes/* ~/.local/share/rofi/themes/
-  cd
-  git clone --depth=1 https://github.com/adi1090x/rofi.git
-  cd rofi
-  chmod +x setup.sh
-  ./setup.sh
-  cd
-fi
 
