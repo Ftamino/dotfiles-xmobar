@@ -26,7 +26,7 @@ else
 fi
 
 echo Install Fish Theme
-curl -L https://get.oh-my.fish | fish
+curl -L https://get.oh-my.fish
 omf install bobthefish
 
 echo Installing Doom Emacs
