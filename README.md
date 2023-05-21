@@ -65,7 +65,7 @@ This is my current setup which is using xmonad as a wm. You are able to click th
 To change Themes use the Python Programm. If the dotfiles are installed use F12 on your keyboard. A simple python3 ./configuration.py should also do it. Changing the Themes for GTK will come in the Programm soon, but its also possible to cahange it thorugh lxapperance.
 
 ## Make Themes
-
+git clone https://www.github.com/Ftamino/dotfiles-polybar 
 To make your own theme just go into .xmonad/lib/colors and copy one of the .hs files. Give it a new name and change in line 1 behind "Colors." the eg Standart to the name of your file. In line five to the same. Change the scheme in xmonad.hs in the imports section by changing the argument import Colors.Standart to the name of yours.
  
 ## Make Material You Themes
@@ -76,27 +76,23 @@ If you ever used a Android 12 phone you probably know that there is that system 
 Disclaimer: The script is not perfect and my not work for everyone or destroy sth. 
 
 ## Arch, Debian and Arch/Debian based 
- 1. Install dependences
+ 1. Download the repo
 ```
-sudo apt install git whiptail
+git clone https://www.github.com/Ftamino/dotfiles-xmobar
 ```
- 2. Download the repo
-```
-git clone https://github.com/Ftamino/dotfiles.git dotfiles
-```
- 3. Go into the downloaded dir
+ 2. Go into the downloaded dir
 ```
 cd dotfiles
 ```
- 4. Give the script permissions 
+ 3. Give the script permissions 
 ```
 chmod +x ./install.sh
 ```
- 5. Run it
+ 4. Run it
 ```
 ./install.sh
 ```
-6. To get fish as the default shell use
+5. To get fish as the default shell use
 ```
 sudo usermod -s yourname /bin/fish
 ```
@@ -110,8 +106,8 @@ sudo usermod -s yourname /bin/fish
  ```
  2. Download the repo
  ```
- git clone https://github.com/Ftamino/dotfiles.git dotfiles
- ```
+git clone https://www.github.com/Ftamino/dotfiles-xmobar
+```
  3. Find out where the files need to go (look at the install script)
  
  ## Troubleshooting: 
