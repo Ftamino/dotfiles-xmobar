@@ -82,7 +82,7 @@ git clone https://www.github.com/Ftamino/dotfiles-xmobar
 ```
  2. Go into the downloaded dir
 ```
-cd dotfiles
+cd dotfiles-xmobar
 ```
  3. Give the script permissions 
 ```
