@@ -1,3 +1,5 @@
+# This repository is no longer maintained. The same xmonad configuration but with polybar can be found in [my new repository.](https://github.com/Ftamino/dotfiles-polybar)
+
 # Info
 
 This is my current setup which is using xmonad as a wm. You are able to click the workspace names btw 😎. A list of keybinds is WIP (Open it if installed with Mod+F12). Feel free to fork it and do sth cool out of it, you dont need to give credits but I would be happy about it. 😁
